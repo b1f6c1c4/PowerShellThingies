@@ -48,8 +48,8 @@ Else
         'ColorTable02' = 0x00008000;
         'ColorTable03' = 0x00808000;
         'ColorTable04' = 0x00000080;
-        'ColorTable05' = 0x00562401;
-        'ColorTable06' = 0x00f0edee;
+        'ColorTable05' = 0x00800080;
+        'ColorTable06' = 0x00008080;
         'ColorTable07' = 0x00c0c0c0;
         'ColorTable08' = 0x00808080;
         'ColorTable09' = 0x00ff0000;
@@ -60,13 +60,14 @@ Else
         'ColorTable14' = 0x0000ffff;
         'ColorTable15' = 0x00ffffff;
         'CtrlKeyShortcutsDisabled' = 0x00000000;
+        'CurrentPage' = 0x00000000;
         'CursorSize' = 0x00000019;
         'EnableColorSelection' = 0x00000000;
         'ExtendedEditKey' = 0x00000001;
         'ExtendedEditKeyCustom' = 0x00000000;
         'FilterOnPaste' = 0x00000000;
         'FontFamily' = 0x00000036;
-        'FontSize' = 0x00180000;
+        'FontSize' = 0x00120000;
         'FontWeight' = 0x00000190;
         'ForceV2' = 0x00000001;
         'FullScreen' = 0x00000000;
@@ -77,23 +78,21 @@ Else
         'LineWrap' = 0x00000001;
         'LoadConIme' = 0x00000001;
         'NumberOfHistoryBuffers' = 0x00000004;
-        'PopupColors' = 0x000000f3;
+        'PopupColors' = 0x000000f5;
         'QuickEdit' = 0x00000001;
-        'ScreenBufferSize' = 0x03e80050;
-        'ScreenColors' = 0x00000056;
+        'ScreenBufferSize' = 0x23280078;
+        'ScreenColors' = 0x0000000f;
         'ScrollScale' = 0x00000001;
         'TrimLeadingZeros' = 0x00000000;
         'WindowAlpha' = 0x000000ff;
-        'WindowSize' = 0x001e0050;
-        'WordDelimiters' = 0x00000000;
-        'CurrentPage' = 0x00000002;
-        'CodePage' = 0x000003a8
+        'WindowSize' = 0x00280078;
+        'WordDelimiters' = 0x00000000
     }.GetEnumerator() | ForEach-Object `
     {
         Set-ItemProperty -Path 'HKCU:\Console' -Name $_.Name -Type 'DWord' -Value $_.Value;
     }
 
-    Set-ItemProperty -Path 'HKCU:\Console' -Name 'FaceName' -Type 'String' -Value 'YaHei Consolas Hybrid';
+    Set-ItemProperty -Path 'HKCU:\Console' -Name 'FaceName' -Type 'String' -Value 'Microsoft YaHei Mono';
 
     Write-Host 'Finished configuring your console. You should recreate shortcuts of console applications you have used so that they get the default look.';
 }
